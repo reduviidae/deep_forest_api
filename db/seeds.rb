@@ -8,5 +8,5 @@
 User.destroy_all
 
 5.times do
-  User.create({name: Faker::GreekPhilosophers.name, pronouns: ["he/him", "she/her", "they/them"].sample, password_digest:'1'})
+  User.create({name: Faker::GreekPhilosophers.name, pronouns: ["he/him", "she/her", "they/them"].sample, password_digest:'dog'})
 end
