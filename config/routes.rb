@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :conversations
       resources :messages
       resources :user_games
+      mount ActionCable.server => '/cable'
     end
   end
 end
