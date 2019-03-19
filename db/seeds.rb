@@ -12,7 +12,7 @@ Conversation.destroy_all
 Message.destroy_all
 
 15.times do
-  User.create({name: Faker::GreekPhilosophers.name, pronouns: ["he/him", "she/her", "they/them"].sample, password_digest:'dog'})
+  User.create({name: Faker::GreekPhilosophers.name, pronouns: ["he/him", "she/her", "they/them"].sample, password:'dog'})
 end
 
 5.times do
