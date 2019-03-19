@@ -12,7 +12,7 @@ class ApplicationController < ActionController::API
   def decoded_token
     if auth_header
       begin
-        JWT.decode(token, 'littlefatdogggies')[0]
+        JWT.decode(auth_header, 'littlefatdogggies')
       rescue JWT::DecodeError
         nil
       end
