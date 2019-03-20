@@ -1,7 +1,6 @@
 class ConversationsChannel < ApplicationCable::Channel
   def subscribed
-    game = Game.find(29)
-    stream_for game
+    stream_from "conversations_channel"
   end
 
   def unsubscribed

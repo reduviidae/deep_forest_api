@@ -1,7 +1,6 @@
 class MessagesChannel < ApplicationCable::Channel
   def subscribed
-    @game = Game.find(params[:game])
-    @conversation = Conversation.find(@game.id)
+    @conversation = Conversation.find_by(user_id: 96)
     stream_for @conversation
   end
 
