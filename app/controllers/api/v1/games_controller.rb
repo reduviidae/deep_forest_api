@@ -10,13 +10,9 @@ class Api::V1::GamesController < ApplicationController
   end
 
   def create
-    game = Game.new(game_params)
-    if game.save
-      serialized_data = serialized_data = ActiveModelSerializers::Adapter::Json.new(
-        GameSerializer.new(game)
-      ).serializer_hash
-      ActionCable.server.broadcast 'games_channel', serialized_data
-      head :ok
+    @game = Game.new(game_params)
+    if @game.save
+      render json: @game
     end
   end
 
