@@ -8,7 +8,6 @@
 User.destroy_all
 Game.destroy_all
 UserGame.destroy_all
-Conversation.destroy_all
 Message.destroy_all
 
 15.times do
@@ -20,15 +19,13 @@ end
 end
 
 User.all.each do |user|
-  UserGame.create({user_id: user.id, game_id: Game.all.sample.id})
+  3.times do
+    UserGame.create({user_id: user.id, game_id: Game.all.sample.id})
+  end
 end
 
-Game.all.each do |game|
-  Conversation.create({game_id: game.id})
-end
-
-Conversation.all.each do |conversation|
-  10.times do
-    Message.create({content: Faker::Hacker.say_something_smart, conversation_id: conversation.id, user_id: User.all.sample.id})
+UserGame.all.each do |ug|
+  5.times do
+    Message.create({user_id: ug.user_id, game_id: ug.game_id, content: Faker::GreekPhilosophers.quote})
   end
 end

@@ -10,13 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_15_141457) do
+ActiveRecord::Schema.define(version: 2019_03_20_132711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "conversations", force: :cascade do |t|
+  create_table "drawings", force: :cascade do |t|
     t.integer "game_id"
+    t.boolean "draw", default: false
+    t.integer "plotX"
+    t.integer "plotY"
+    t.string "color", default: "#1b1b1b"
+    t.integer "lineWidth", default: 5
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -30,7 +35,7 @@ ActiveRecord::Schema.define(version: 2019_03_15_141457) do
   create_table "messages", force: :cascade do |t|
     t.string "content"
     t.integer "user_id"
-    t.integer "conversation_id"
+    t.integer "game_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

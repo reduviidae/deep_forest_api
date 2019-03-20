@@ -1,16 +1,30 @@
 class Api::V1::MessagesController < ApplicationController
+
+  def index
+    @messages = Message.all
+    render json: @messages
+  end
+
+  def show
+    @message = message.find(params[:id])
+    render json: @message
+  end
+
   def create
-    message = current_user.messages.build(message_params)
-    if message.save
-      ActionCable.server.broadcast 'room_channel',
-                                   content:  message.content,
-                                   username: message.user.name
+    @message = Message.new(message_params)
+    @game = Game.find(message_params[:game_id])
+    if @message.save
+      ActiveModelSerializers::Adapter::Json.new(
+        MessageSerializer.new(@message)
+      ).serializable_hash
+      MessagesChannel.broadcast_to @game, serialized_data
+      head :ok
     end
   end
 
   private
 
   def message_params
-    params.require(:message).permit(:content, :conversation_id, :user_id)
+    params.require(:message).permit(:content, :game_id, :user_id)
   end
 end

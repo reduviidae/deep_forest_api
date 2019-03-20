@@ -3,5 +3,4 @@ class UserSerializer < ActiveModel::Serializer
   has_many :user_games
   has_many :messages
   has_many :games, through: :user_games
-  has_many :conversations, through: :messages
 end

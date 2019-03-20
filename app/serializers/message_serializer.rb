@@ -1,5 +1,5 @@
 class MessageSerializer < ActiveModel::Serializer
-  attributes :id, :content, :conversation_id, :user_id
+  attributes :id, :content, :game_id, :user_id
   belongs_to :user
-  belongs_to :conversation
+  belongs_to :game
 end

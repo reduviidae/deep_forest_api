@@ -1,7 +1,7 @@
 class MessagesChannel < ApplicationCable::Channel
   def subscribed
-    @conversation = Conversation.find_by(user_id: 96)
-    stream_for @conversation
+    @game = Game.find_by(user_id: 96)
+    stream_for @game
   end
 
   def unsubscribed
