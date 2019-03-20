@@ -7,5 +7,19 @@ module ApplicationCable
     end
 
     private
+      def find_verified_user
+        begin
+          token = cookies["X-Authorization"].split(".")[2]
+          decoded_token = JsonWebToken.decode(token)
+          byebug
+          if (current_user = User.find(decoded_token["user_id"]))
+            current_user
+          else
+            reject_unauthorized_connection
+          end
+        rescue
+          current_user
+        end
+      end
   end
 end
