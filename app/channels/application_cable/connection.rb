@@ -11,7 +11,6 @@ module ApplicationCable
         begin
           token = cookies["X-Authorization"].split(".")[2]
           decoded_token = JsonWebToken.decode(token)
-          byebug
           if (current_user = User.find(decoded_token["user_id"]))
             current_user
           else

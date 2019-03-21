@@ -18,8 +18,7 @@ ActiveRecord::Schema.define(version: 2019_03_20_132711) do
   create_table "drawings", force: :cascade do |t|
     t.integer "game_id"
     t.boolean "draw", default: false
-    t.integer "plotX"
-    t.integer "plotY"
+    t.json "plots", default: []
     t.string "color", default: "#1b1b1b"
     t.integer "lineWidth", default: 5
     t.datetime "created_at", null: false

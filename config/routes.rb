@@ -6,10 +6,12 @@ Rails.application.routes.draw do
       resources :users
       post '/login', to: 'auth#create'
       get '/profile', to: 'users#profile'
+      patch '/drawings', to: 'drawings#draw'
       resources :games
       resources :conversations
       resources :messages
       resources :user_games
+      resources :drawings
       mount ActionCable.server => '/cable'
     end
   end

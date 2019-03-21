@@ -11,10 +11,10 @@ class Api::V1::MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(message_params)
     @game = Game.find(message_params[:game_id])
+    @message = Message.new(message_params)
     if @message.save
-      ActiveModelSerializers::Adapter::Json.new(
+      serialized_data = ActiveModelSerializers::Adapter::Json.new(
         MessageSerializer.new(@message)
       ).serializable_hash
       MessagesChannel.broadcast_to @game, serialized_data
