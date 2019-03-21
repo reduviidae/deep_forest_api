@@ -17,6 +17,7 @@ class Api::V1::MessagesController < ApplicationController
       serialized_data = ActiveModelSerializers::Adapter::Json.new(
         MessageSerializer.new(@message)
       ).serializable_hash
+      puts "serialized_data"
       MessagesChannel.broadcast_to @game, serialized_data
       head :ok
     end
