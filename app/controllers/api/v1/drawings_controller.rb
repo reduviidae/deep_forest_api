@@ -17,11 +17,12 @@ class Api::V1::DrawingsController < ApplicationController
   end
 
   def draw
+    @game = Game.find(drawing_params[:game_id])
     @drawing = Drawing.find(params[:id])
-    @drawing.draw = params[:draw]
-    @drawing.color = params[:color]
-    @drawing.lineWidth = params[:lineWidth]
-    @drawing.plots = params[:plots]
+    @drawing.draw = drawing_params[:draw]
+    @drawing.color = drawing_params[:color]
+    @drawing.lineWidth = drawing_params[:lineWidth]
+    @drawing.plots = drawing_params[:plots]
     if @drawing.save
       serialized_data = ActiveModelSerializers::Adapter::Json.new(
         DrawingSerializer.new(@drawing)
@@ -34,6 +35,6 @@ class Api::V1::DrawingsController < ApplicationController
   private
 
   def drawing_params
-    params.require(:drawing).permit(:game_id, :draw, :plots, :color, :lineWidth)
+    params.require(:drawing).permit(:id, :game_id, :draw, :plots, :color, :lineWidth)
   end
 end
