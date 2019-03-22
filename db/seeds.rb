@@ -9,6 +9,7 @@ User.destroy_all
 Game.destroy_all
 UserGame.destroy_all
 Message.destroy_all
+Drawing.destroy_all
 
 15.times do
   User.create({name: Faker::GreekPhilosophers.name, pronouns: ["he/him", "she/her", "they/them"].sample, password:'dog'})
@@ -20,13 +21,14 @@ end
 
 Game.all.each do |game|
   3.times do |user|
-      UserGame.create({user_id: User.all.sample.id, game_id: game.id})
+      user = User.all.sample
+      UserGame.create({user_id: user.id, user_name: user.name, game_id: game.id})
   end
 end
 
 UserGame.all.each do |ug|
   5.times do
-    Message.create({user_id: ug.user_id, game_id: ug.game_id, content: Faker::GreekPhilosophers.quote})
+    Message.create({user_id: ug.user_id, user_name: ug.user_name, game_id: ug.game_id, content: Faker::GreekPhilosophers.quote})
   end
 end
 
