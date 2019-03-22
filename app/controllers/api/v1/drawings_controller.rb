@@ -30,7 +30,7 @@ class Api::V1::DrawingsController < ApplicationController
       serialized_data = ActiveModelSerializers::Adapter::Json.new(
         DrawingSerializer.new(@drawing)
       ).serializable_hash
-      DrawingsChannel.broadcast_to @game, serialized_data
+      DrawingsChannel.broadcast_to @drawing, serialized_data
       head :ok
     end
   end
