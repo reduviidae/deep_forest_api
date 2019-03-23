@@ -31,7 +31,6 @@ class Api::V1::DrawingsController < ApplicationController
         DrawingSerializer.new(@drawing)
       ).serializable_hash
       DrawingsChannel.broadcast_to @drawing, serialized_data
-      head :ok
     end
   end
 

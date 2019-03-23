@@ -19,7 +19,6 @@ class Api::V1::MessagesController < ApplicationController
       ).serializable_hash
       puts "serialized_data"
       MessagesChannel.broadcast_to @game, serialized_data
-      head :ok
     end
   end
 
