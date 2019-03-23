@@ -18,20 +18,11 @@ class Api::V1::DrawingsController < ApplicationController
 
   def draw
     @game = Game.find(drawing_params[:game_id])
-    puts "***************************************
-          #{@game}
-          ***************************************"
     @drawing = Drawing.find(drawing_params[:id])
-    puts "***************************************
-          #{@drawing}
-          ***************************************"
     @drawing.draw = drawing_params[:draw]
     @drawing.color = drawing_params[:color]
     @drawing.lineWidth = drawing_params[:lineWidth]
     @drawing.plots = params[:plots]
-    puts "***************************************
-          #{params}
-          ***************************************"
     if @drawing.save
       serialized_data = ActiveModelSerializers::Adapter::Json.new(
         DrawingSerializer.new(@drawing)
