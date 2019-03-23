@@ -1,8 +1,9 @@
 development:
-  adapter: postgresql
+  adapter: redis
 
 test:
-  adapter: postgresql
+  adapter: redis
+
 
 production:
-  adapter: postgresql
+  adapter: redis
