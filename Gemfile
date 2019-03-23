@@ -1,7 +1,7 @@
 # source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.1'
+ruby '2.6.2'
 
 gem 'active_model_serializers'
 
@@ -50,6 +50,6 @@ end
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: [:ruby, :ruby_18, :ruby_19, :ruby_20, :ruby_21, :ruby_22, :ruby_23, :ruby_24, :ruby_25, :mri, :mri_18, :mri_19, :mri_20, :mri_21, :mri_22, :mri_23, :mri_24, :mri_25, :rbx, :truffleruby, :jruby, :jruby_18, :jruby_19, :mswin, :mswin_18, :mswin_19, :mswin_20, :mswin_21, :mswin_22, :mswin_23, :mswin_24, :mswin_25, :mswin64, :mswin64_19, :mswin64_20, :mswin64_21, :mswin64_22, :mswin64_23, :mswin64_24, :mswin64_25, :mingw, :mingw_18, :mingw_19, :mingw_20, :mingw_21, :mingw_22, :mingw_23, :mingw_24, :mingw_25, :x64_mingw, :x64_mingw_20, :x64_mingw_21, :x64_mingw_22, :x64_mingw_23, :x64_mingw_24, :x64_mingw_25]
 
 gem "jwt", "~> 2.1"
