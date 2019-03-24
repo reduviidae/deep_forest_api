@@ -17,8 +17,7 @@ class Api::V1::DrawingsController < ApplicationController
   end
 
   def draw
-    @game = Game.find(drawing_params[:game_id])
-    @drawing = Drawing.find(drawing_params:[:id])
+    @drawing = Drawing.first
     @drawing.draw = true
     @drawing.color = drawing_params[:color]
     @drawing.lineWidth = drawing_params[:lineWidth]
