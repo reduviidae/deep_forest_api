@@ -16,6 +16,12 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def reauth
+    puts "#{params}"
+    puts "#{user_params}"
+    byebug
+  end
+
   def show
     @user = User.find(params[:id])
     render :json => @user, each_serializer: UserSerializer

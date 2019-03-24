@@ -18,8 +18,8 @@ class Api::V1::DrawingsController < ApplicationController
 
   def draw
     @game = Game.find(drawing_params[:game_id])
-    @drawing = Drawing.find(drawing_params[:id])
-    @drawing.draw = drawing_params[:draw]
+    @drawing = Drawing.find(drawing_params:[:id])
+    @drawing.draw = true
     @drawing.color = drawing_params[:color]
     @drawing.lineWidth = drawing_params[:lineWidth]
     @drawing.plots = params[:plots]
@@ -29,6 +29,8 @@ class Api::V1::DrawingsController < ApplicationController
       ).serializable_hash
       DrawingsChannel.broadcast_to @drawing, serialized_data
     end
+    @drawing.draw = false
+    @drawing. save
   end
 
   private

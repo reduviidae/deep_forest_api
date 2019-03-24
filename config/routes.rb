@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       post '/login', to: 'auth#create'
       get '/profile', to: 'users#profile'
       patch '/drawings', to: 'drawings#draw'
+      # get '/me-from-token', to: 'users#reauth'
       resources :games
       resources :conversations
       resources :messages
