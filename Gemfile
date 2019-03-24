@@ -1,9 +1,14 @@
-# source 'https://rubygems.org'
+source 'https://rubygems.org'
+
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.2'
 
 gem 'active_model_serializers'
+
+gem "google-protobuf", '>=3.7.0.rc.2'
+
+gem "anycable-rails"
 
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 

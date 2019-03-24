@@ -1,9 +1,9 @@
 development:
-  adapter: redis
+  adapter: any_cable
 
 test:
-  adapter: redis
+  adapter: any_cable
 
 
 production:
-  adapter: redis
+  adapter: any_cable
