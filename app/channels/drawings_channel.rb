@@ -1,6 +1,6 @@
 class DrawingsChannel < ApplicationCable::Channel
   def subscribed
-    @game = Game.find(11)
+    @game = Game.find(1)
     stream_for @game
   end
 
