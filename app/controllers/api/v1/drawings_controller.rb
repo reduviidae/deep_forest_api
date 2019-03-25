@@ -17,6 +17,7 @@ class Api::V1::DrawingsController < ApplicationController
   end
 
   def draw
+    @game = Game.first
     @drawing = Drawing.first
     @drawing.draw = true
     @drawing.color = drawing_params[:color]
@@ -26,10 +27,10 @@ class Api::V1::DrawingsController < ApplicationController
       serialized_data = ActiveModelSerializers::Adapter::Json.new(
         DrawingSerializer.new(@drawing)
       ).serializable_hash
-      DrawingsChannel.broadcast_to @drawing, serialized_data
+      DrawingsChannel.broadcast_to @game, serialized_data
     end
     @drawing.draw = false
-    @drawing. save
+    @drawing.save
   end
 
   private
