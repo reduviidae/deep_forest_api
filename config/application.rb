@@ -24,8 +24,8 @@ module DeepForestApi
 
     # action_cable configurations
     config.action_cable.disable_request_forgery_protection = true
-    config.action_cable.url = Nenv.cable_url
-    config.action_cable.mount_path = Nenv.cable_url? ? nil : "/cable"
+    config.action_cable.url = "ws://flatiron-draw-and-chat.herokuapp.com/api/v1"
+    config.action_cable.mount_path = "/cable"
 
     if ENV["ANYCABLE_RACK"]
       config.any_cable_rack.run_rpc = true
