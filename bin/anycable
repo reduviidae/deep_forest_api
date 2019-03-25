@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 # Before starting Anycable server
 if ENV['ANYCABLE_DEPLOYMENT']
   # A very naive way to run external process (but that should be enough for Heroku)
