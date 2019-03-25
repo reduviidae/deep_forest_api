@@ -4,7 +4,7 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
-  # config.action_cable.url = "ws://flatiron-draw-and-chat.herokuapp.com/cable"
+  config.action_cable.url = "wss://flatiron-draw-and-chat.herokuapp.com/cable"
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers

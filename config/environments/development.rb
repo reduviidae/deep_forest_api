@@ -7,7 +7,7 @@ Rails.application.configure do
   config.cache_classes = false
 
   #
-  # config.action_cable.url = "ws://flatiron-draw-and-chat.herokuapp.com/api/v1/cable"
+  config.action_cable.url = "wss://flatiron-draw-and-chat.herokuapp.com/api/v1/cable"
 
 
   # Do not eager load code on boot.
