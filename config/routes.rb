@@ -13,7 +13,6 @@ Rails.application.routes.draw do
       resources :messages
       resources :user_games
       resources :drawings
-      mount ActionCable.server => '/cable'
     end
   end
 end
