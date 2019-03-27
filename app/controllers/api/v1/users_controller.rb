@@ -24,8 +24,14 @@ class Api::V1::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.pronouns = user_params[:pronouns]
-    @user.save
+    if user_params[:pronouns]
+     @user.pronouns = user_params[:pronouns]
+     @user.save
+    end
+    if user_params[:avatar]
+      @user.avatar = user_params[:avatar]
+      @user.save
+    end
     render :json => @user, each_serializer: UserSerializer
   end
 
@@ -41,7 +47,7 @@ class Api::V1::UsersController < ApplicationController
 
   private
   def user_params
-      params.require(:user).permit(:name, :pronouns, :password)
+      params.require(:user).permit(:name, :pronouns, :password, :avatar)
   end
 
 end

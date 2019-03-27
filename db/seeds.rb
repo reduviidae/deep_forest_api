@@ -31,7 +31,7 @@
 # Drawing.create({game_id: game.id, color: "#1b1b1b", lineWidth: 5, draw: false,
 #   plots:[]})
 
-User.all.each do |user|
-  user.avatar = ["pink fairy armadillo", "okapi", "glaucus atlanticus", "maned wolf", "fossa"].sample
-  user.save
-end
+# User.all.each do |user|
+#   user.avatar = ["pink fairy armadillo", "okapi", "glaucus atlanticus", "maned wolf", "fossa"].sample
+#   user.save
+# end
