@@ -23,6 +23,13 @@ class Api::V1::UsersController < ApplicationController
     byebug
   end
 
+  def update
+    @user = User.find(params[:id])
+    @user.pronouns = user_params[:pronouns]
+    @user.save
+    render :json => @user, each_serializer: UserSerializer
+  end
+
   def show
     @user = User.find(params[:id])
     render :json => @user, each_serializer: UserSerializer
