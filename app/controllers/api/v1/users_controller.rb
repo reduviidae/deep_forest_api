@@ -20,7 +20,6 @@ class Api::V1::UsersController < ApplicationController
   def reauth
     puts "#{params}"
     puts "#{user_params}"
-    byebug
   end
 
   def update
