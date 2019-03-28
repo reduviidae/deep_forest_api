@@ -8,6 +8,8 @@ class Api::V1::UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
+    @user.avatar = "pink_fairy_armadillo"
+    @user.save
     if @user.valid?
       UserGame.create(user_id: @user.id, game_id: 11)
       @token = encode_token(user_id: @user.id)
