@@ -5,17 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# User.destroy_all
+User.destroy_all
 # Game.destroy_all
-# UserGame.destroy_all
-# Message.destroy_all
-# Drawing.destroy_all
+UserGame.destroy_all
+Message.destroy_all
+Drawing.destroy_all
 #
 15.times do
   User.create({name: Faker::GreekPhilosophers.name, pronouns: ["he/him", "she/her", "they/them"].sample, password:'dog'})
 end
 
-game = Game.create({title: "Chat and Draw"})
+# game = Game.create({title: "Chat and Draw"})
 
 
 User.all.each do |user|
@@ -32,6 +32,6 @@ Drawing.create({game_id: game.id, color: "#1b1b1b", lineWidth: 5, draw: false,
   plots:[]})
 
 User.all.each do |user|
-  user.avatar = ["pink fairy armadillo", "okapi", "glaucus atlanticus", "maned wolf", "fossa"].sample
+  user.avatar = ["pink_fairy_armadillo", "okapi", "glaucus_atlanticus", "maned_wolf", "fossa"].sample
   user.save
 end

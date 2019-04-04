@@ -11,7 +11,7 @@ class Api::V1::UsersController < ApplicationController
     @user.avatar = "pink_fairy_armadillo"
     @user.save
     if @user.valid?
-      UserGame.create(user_id: @user.id, game_id: 11)
+      UserGame.create(user_id: @user.id, game_id: 1)
       @token = encode_token(user_id: @user.id)
       render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
     else
