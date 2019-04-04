@@ -1,1 +1,1 @@
-web: CABLE_URL='wss://flatiron-school-chat-and-draw-backend-rpc.herokuapp.com/cable' bin/heroku-web
+web: CABLE_URL='wss://deep-forest-api-rpc.herokuapp.com/cable' bin/heroku-web
