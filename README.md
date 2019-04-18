@@ -1,6 +1,6 @@
 # To See Chat App
 
-Please review the video-demo branch to see the working version of the simple chat and draw feature.
+Please review the demo-local branch to see the working version of the simple chat and draw feature.
 
 To run the backend will require several steps:
 - Open three tabs in your terminal in the same directory. 
@@ -9,6 +9,8 @@ To run the backend will require several steps:
 - In your third tab, run 'anycable-go --host=localhost --port=3334'
 
 This will provide the backend API as well as the websockets connection. Please see the AnyCable documentation for further help: https://docs.anycable.io/#/using_with_rails
+
+Once the backend is up and running, you can start the client: https://github.com/reduviidae/deep_forest_client
 
 # The Deep Forest
 
