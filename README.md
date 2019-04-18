@@ -1,24 +1,17 @@
-# README
+# To See Chat App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To run the backend will require several steps:
+- Open three tabs in your terminal in the same directory. 
+- In one tab, run 'rails s'
+- In another tab, run 'bundle exec anycable'
+- In your third tab, run 'anycable-go --host=localhost --port=3334'
 
-Things you may want to cover:
+This will provide the backend API as well as the websockets connection. Please see the AnyCable documentation for further help: https://docs.anycable.io/#/using_with_rails
 
-* Ruby version
+Once the backend is up and running, you can start the client: https://github.com/reduviidae/deep_forest_client
 
-* System dependencies
+# The Deep Forest
 
-* Configuration
+The Deep Forest is a wonderfully inventive game created by Mark Diaz Truman and Avery Alder. https://buriedwithoutceremony.com/the-quiet-year/the-deep-forest
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This app is a work in progress, and is being built as an online verion of The Deep Forest. 
